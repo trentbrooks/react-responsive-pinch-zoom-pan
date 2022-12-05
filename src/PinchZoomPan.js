@@ -12,6 +12,7 @@ const OVERZOOM_TOLERANCE = 0.05;
 const DOUBLE_TAP_THRESHOLD = 250;
 const ANIMATION_SPEED = 0.1;
 const ZOOMIN_AMOUNT = 0.25;
+const ZOOMIN_SPEED = 0.25;
 
 const isInitialized = (top, left, scale) => scale !== undefined && left !== undefined && top !== undefined;
 
@@ -278,7 +279,7 @@ export default class PinchZoomPan extends React.Component {
         this.lastPinchLength = length;
     }
 
-    zoomIn(midpoint, speed = 0, factor = ZOOMIN_AMOUNT) {
+    zoomIn(midpoint, speed = ZOOMIN_SPEED, factor = ZOOMIN_AMOUNT) {
         midpoint = midpoint || {
             x: this.state.containerDimensions.width / 2,
             y: this.state.containerDimensions.height / 2
@@ -291,7 +292,7 @@ export default class PinchZoomPan extends React.Component {
             x: this.state.containerDimensions.width / 2,
             y: this.state.containerDimensions.height / 2
         };
-        this.zoom(this.state.scale * (1.0-ZOOMIN_AMOUNT), midpoint, 0);
+        this.zoom(this.state.scale * (1.0-ZOOMIN_AMOUNT), midpoint, ZOOMIN_SPEED);
     }
 
     zoom(requestedScale, containerRelativePoint, tolerance, speed = 0) {
