@@ -1,5 +1,5 @@
 {
-  "name": "react-responsive-pinch-zoom-pan",
+  "name": "react-responsive-pinch-zoom-pan-tb",
   "version": "0.3.0",
   "description": "Enables zooming and panning an image, both mobile and desktop.",
   "main": "dist/PinchZoomPan.js",
